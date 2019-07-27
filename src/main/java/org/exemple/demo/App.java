@@ -31,7 +31,9 @@ public class App
 
         BookManager manager = new BookManager();
         manager.setup();
+        manager.deleteAll();
         manager.create();
+        manager.readAll();
         manager.exit();
 
         //Schedule a job for the event-dispatching thread:

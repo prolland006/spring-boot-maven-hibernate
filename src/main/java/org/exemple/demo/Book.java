@@ -12,17 +12,29 @@ import javax.persistence.*;
 @Entity
 @Table(name = "book")
 public class Book {
+    @Id
+    @Column(name = "book_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String title;
     private String author;
     private float price;
 
+    @ManyToOne
+    private Shelf shelf;
+
     public Book() {
     }
 
-    @Id
-    @Column(name = "book_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Shelf getShelf() {
+        return shelf;
+    }
+
+    public void setShelf(Shelf shelf) {
+        this.shelf = shelf;
+    }
+
     public long getId() {
         return id;
     }
